@@ -1,0 +1,99 @@
+CREATE TABLE TIPOSUSUARIO(
+  IDTIPOUSUARIO INTEGER NOT NULL,
+  NOMBRE VARCHAR(80) NOT NULL,
+  ESTATUS CHAR NOT NULL,
+  CONSTRAINT PK_TIPOS PRIMARY KEY(IDTIPOUSUARIO)
+);
+
+SELECT * FROM ESTADOS;
+
+INSERT INTO ESTADOS VALUES(1,'Michoacán','MICH','A');
+INSERT INTO ESTADOS VALUES(2,'Jalisco','JAL','A');
+INSERT INTO ESTADOS VALUES(3,'Guanajuato','GUA','A');
+INSERT INTO ESTADOS VALUES(4,'Colima','COL','A');
+INSERT INTO ESTADOS VALUES(5,'Guerrero','GUE','A');
+INSERT INTO ESTADOS VALUES(6,'Oaxaca','OAX','A');
+INSERT INTO ESTADOS VALUES(7,'Hidalgo','HDG','A');
+
+-----------------------------------------------------------------------------------------
+
+SELECT * FROM CIUDADES;
+
+INSERT INTO CIUDADES VALUES(1,'Zamora','A',1);
+INSERT INTO CIUDADES VALUES(2,'Morelia','A',1);
+INSERT INTO CIUDADES VALUES(3,'Guadalajara','A',2);
+INSERT INTO CIUDADES VALUES(4,'Zapopán','A',2);
+INSERT INTO CIUDADES VALUES(5,'Guanajuato','A',3);
+INSERT INTO CIUDADES VALUES(6,'León','A',3);
+INSERT INTO CIUDADES VALUES(7,'Comala','A',4);
+INSERT INTO CIUDADES VALUES(8,'Colima','A',4);
+INSERT INTO CIUDADES VALUES(9,'Acapulco','A',5);
+INSERT INTO CIUDADES VALUES(10,'Chilpancingo','A',5);
+INSERT INTO CIUDADES VALUES(11,'Totolapa','A',6);
+INSERT INTO CIUDADES VALUES(12,'Ocotlán de Morelos','A',6);
+INSERT INTO CIUDADES VALUES(13,'Pachuca','A',7);
+INSERT INTO CIUDADES VALUES(14,'Atotonilco el Grande','A',7);
+
+------------------------------------------------------------------------------------------
+
+INSERT INTO ASOCIACIONES VALUES(1,'Grupo de agricultores de Zamora','A');
+INSERT INTO ASOCIACIONES VALUES(2,'Ejidatarios de Morelia','A');
+INSERT INTO ASOCIACIONES VALUES(3,'Grupo Axa','A');
+INSERT INTO ASOCIACIONES VALUES(4,'Unión del Sur','A');
+INSERT INTO ASOCIACIONES VALUES(5,'Grupo León','A');
+
+SELECT * FROM ASOCIACIONES;
+
+---------------------------------------------------------------------------------------------
+
+INSERT INTO CULTIVOS VALUES(1,'Jitomate',100,'A');
+INSERT INTO CULTIVOS VALUES(2,'Maíz',300,'A');
+INSERT INTO CULTIVOS VALUES(3,'Fresa',200,'A');
+INSERT INTO CULTIVOS VALUES(4,'Zarzamora',300,'A');
+INSERT INTO CULTIVOS VALUES(5,'Trigo',150,'A');
+
+SELECT * FROM CULTIVOS;
+
+--------------------------------------------------------------------------------------------------
+
+INSERT INTO UNIDADESTRANSPORTE VALUES(1,'ACDR-10','Ford','Duty Chasis',2008,100);
+INSERT INTO UNIDADESTRANSPORTE VALUES(2,'GTFS-32','Mercedes Benz','Actros',2016,1000);
+INSERT INTO UNIDADESTRANSPORTE VALUES(3,'NVHR-67','Freightliner','360 715',2016,250);
+INSERT INTO UNIDADESTRANSPORTE VALUES(4,'ANJE-45','Ford','Duty Chasis',2006,100);
+INSERT INTO UNIDADESTRANSPORTE VALUES(5,'LGYW-89','Isuzu','ELF 100',2008,1500);
+
+SELECT * FROM UNIDADESTRANSPORTE;
+
+---------------------------------------------------------------------------------------------------------------
+
+INSERT INTO CLIENTES VALUES(1,'Marco Antonio Sola','Hermanos Sola',10000,'Av, Chapultepec #23','44269','MAS230465L95','4436578233','marco_a@sola.com','A',3);
+
+SELECT * FROM CLIENTES;
+
+
+CREATE or REPLACE PROCEDURE Insertar_cultivos IS
+NOMBRE VARCHAR2(100);
+COSTOASESORIA FLOAT;
+ESTATUS CHAR(1);
+BEGIN
+  SELECT CULTIVOS_SEC.NEXTVAL FROM SYS_DUAL
+  INSERT INTO CULTIVOS VALUES(CULTIVOS_SEC.NEXTVAL,NOMBRE,COSTOASESORIA,ESTATUS);
+END
+
+
+CREATE or REPLACE PROCEDURE Insertar_UniTransporte
+BEGIN
+
+END
+
+
+CREATE or REPLACE PROCEDURE Insertar_Clientes
+BEGIN
+
+END
+
+
+CREATE or REPLACE PROCEDURE Insertar_Asociaciones
+BEGIN
+
+END
